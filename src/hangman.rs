@@ -134,9 +134,8 @@ impl Hangman {
         println!("{}", yellow.bold().paint(self.display()));
     }
 
-    pub fn play(&mut self) {
+    pub fn play(&mut self) -> bool {
         while !self.is_done() {
-            println!("\n\n\n\n\n\n\n\n\n\n\n\n");
             self.draw();
             self.draw_all_letters_multi_line();
             print!("{}: ", Color::Yellow.bold().paint("Guess a letter"));
@@ -163,5 +162,6 @@ impl Hangman {
                     .paint(self.word.to_ascii_uppercase())
             );
         }
+        return self.is_complete();
     }
 }
