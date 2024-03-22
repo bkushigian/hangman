@@ -18477,7 +18477,6 @@ hayfever
 hayfield
 hayloft
 haystack
-haywain
 haywire
 hazard
 hazarded
