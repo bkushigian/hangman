@@ -109,6 +109,9 @@ impl Hangman {
         let dead_features = vec!["(_)", "/", "|", "\\", "|", "|", "|"];
         let mut to_draw = vec!["", "", "", "", "", "", ""];
         let num_guesses = self.incorrect_guesses.len();
+
+        // If my number of incorrect guesses is 8 or more,
+        // I'm dead so let's draw dead me
         if num_guesses > live_features.len() {
             for i in 0..dead_features.len() {
                 to_draw[i] = dead_features[i];
@@ -135,6 +138,7 @@ impl Hangman {
     }
 
     pub fn play(&mut self) -> bool {
+        // ! means "not"
         while !self.is_done() {
             self.draw();
             self.draw_all_letters_multi_line();
